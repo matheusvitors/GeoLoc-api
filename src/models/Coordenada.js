@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../core/db');
+const db = require('../database/db');
 
 const Coordenada = db.define('coordenada', {
 	id: {
@@ -19,8 +19,10 @@ const Coordenada = db.define('coordenada', {
 
 	timestamp: {
 		type: Sequelize.DATE
-	}
+	},
+
 });
+
 
 Coordenada.sync();
 
