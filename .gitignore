@@ -1,34 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
-
-@matheusvitors
-matheusvitors
-/
-popcornflix-server
-Public
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-popcornflix-server/.gitignore
-@matheusvitors
-matheusvitors Thumbs automaticos
-Latest commit 25cfbc0 on 29 May
- History
- 1 contributor
-110 lines (80 sloc)  1.62 KB
-
 # Logs
 logs
 *.log
@@ -137,18 +106,4 @@ dist
 #packages
 package-lock.json
 
-#videos
-videos/
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
+*.sqlite

@@ -16,6 +16,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(cors());
 app.use(routes);
 
-app.listen(8000, function (){
-    console.log("Listen on port 8000.");
+const port = process.env.PORT || 8000;
+
+app.listen(process.env.PORT || 8000, function (){
+    console.log("Listen on port %d", port);
 });
