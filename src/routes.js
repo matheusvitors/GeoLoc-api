@@ -13,7 +13,7 @@ routes.get('/', (req, res) => {
 routes.get('/rotas', async (req, res) => {
 
 	try {
-		const rotas = await Rota.findAll();
+		const rotas = await Rota.findAll({ include: Coordenada });
 		res.send({ Rotas: rotas });
 
 	} catch (err) {
