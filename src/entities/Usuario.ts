@@ -5,8 +5,8 @@ export class Usuario {
 	public readonly id: string;
 	public matricula: string;
 
-	constructor(props: Omit<Usuario, 'id'>, id?: string) {
-		Object.assign(this, props);
+	constructor(matricula: string, id?: string) {
+		this.matricula = matricula;
 		this.id = id ? id : uuid();
 	}
 

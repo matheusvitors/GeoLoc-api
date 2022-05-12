@@ -3,10 +3,10 @@
 	"compilerOptions": {
 		"target": "es2017" ,
 		"module": "commonjs" ,
-		"rootDir": "./",
 		"moduleResolution": "node",
 		"baseUrl": "./src",
-		"paths": {},
+		"paths": {
+		},
 		"resolveJsonModule": true,
 		"allowJs": true,
 		"outDir": "./dist",
@@ -15,9 +15,14 @@
 		"esModuleInterop": true ,
 		"forceConsistentCasingInFileNames": true ,
 		"strict": true ,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"strictPropertyInitialization": false,
 	},
 	"include": [
 		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"dist"
 	]
 }
