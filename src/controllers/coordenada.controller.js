@@ -1,6 +1,9 @@
+import { Router } from 'express';
 import { CoordenadaRepository } from "../repositories/coordenada.repository.js";
 
-const list = async(req, res) => {
+const router = Router();
+
+router.get('/coords', async(req, res) => {
 	try {
 		const coordenadas = await new CoordenadaRepository().list();
 		res.send({ coordenadas });
@@ -10,9 +13,9 @@ const list = async(req, res) => {
 		res.status(500).send({ error: err.message })
 	}
 
-}
+});
 
-const save = async(req, res) => {
+router.post('/coords', async(req, res) => {
 
 	//TODO: Timestamp não está sendo salvo
 	try {
@@ -24,9 +27,9 @@ const save = async(req, res) => {
 		console.log(err);
 		res.status(500).send({ error: err.message })
 	}
-}
+})
 
-const destroyDB = async(req, res) => {
+router.delete('/coords/database', async(req, res) => {
 	try {
 		await new CoordenadaRepository().destroyAll();
 		res.status(200).send({ message: 'Database deletada!' });
@@ -35,6 +38,7 @@ const destroyDB = async(req, res) => {
 		console.log(error);
 		res.status(500).send({ error: error.message })
 	}
-}
+})
 
-export { list, save, destroyDB }
+
+export default router;

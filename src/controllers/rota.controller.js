@@ -1,8 +1,10 @@
 
-import Rota from '../database/schemas/Rota.js';
+import { Router } from 'express';
 import { RotaRepository } from "../repositories/rota.repository.js";
 
-const list = async (req, res) => {
+const router = Router();
+
+router.get('/rotas', async (req, res) => {
 	try {
 		const rotas = await new RotaRepository().list();
 		res.send({ rotas });
@@ -11,9 +13,9 @@ const list = async (req, res) => {
 		console.log(err);
 		res.status(500).send({ error: err.message });
 	}
-}
+});
 
-const get = async (req, res) => {
+router.get('/rotas/:id', async (req, res) => {
 	const { id } = req.params;
 
 	try {
@@ -25,9 +27,9 @@ const get = async (req, res) => {
 		console.log(err);
 		res.status(500).send({ error: err.message })
 	}
-}
+});
 
-const save = async (req, res) => {
+router.post('/rotas', async (req, res) => {
 	try {
 		const rota = await new RotaRepository().create();
 		res.status(200).send({ rota: rota });
@@ -37,9 +39,9 @@ const save = async (req, res) => {
 		res.status(500).send({ error: err.message })
 	}
 
-}
+});
 
-const destroyDB = async (req, res) => {
+router.delete('/rotas/database', async (req, res) => {
 	try {
 		await new RotaRepository().destroyAll();
 		res.status(200).send({ message: 'Database deletada!' });
@@ -49,6 +51,6 @@ const destroyDB = async (req, res) => {
 		res.status(500).send({ error: err.message })
 	}
 
-}
+});
 
-export { list, get, save, destroyDB };
+export default router;
