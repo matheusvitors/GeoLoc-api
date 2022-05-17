@@ -9,15 +9,15 @@ const Rota = db.define('rota', {
 		allowNull: false,
 		primaryKey: true
 	},
+
+	usuarioId: {
+		type: INTEGER,
+		allowNull: false,
+	}
+
 });
 
-// Rota.associate = function(models) {
-// 	Rota.hasMany(models.Coordenada,
-// 		{foreignKey: 'rotaId', as: 'coordenada', onDelete: 'CASCADE' });
-// 	// Rota.belongsTo(models.Usuario, {foreignKey: usuarioId, as: 'usuario'})
-// }
-
-Rota.hasMany(Coordenada, {foreignKey: 'rotaId'})
+Rota.hasMany(Coordenada, {foreignKey: 'rotaId', onDelete: 'cascade'})
 Coordenada.belongsTo(Rota, {foreignKey: 'rotaId'})
 
 Rota.sync();

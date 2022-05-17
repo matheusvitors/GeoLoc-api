@@ -8,9 +8,9 @@ router.get('/coords', async(req, res) => {
 		const coordenadas = await new CoordenadaRepository().list();
 		res.send({ coordenadas });
 
-	} catch (err) {
-		console.log(err);
-		res.status(500).send({ error: err.message })
+	} catch (error) {
+		console.log(error);
+		res.status(500).send({ error: error.message })
 	}
 
 });
@@ -23,9 +23,9 @@ router.post('/coords', async(req, res) => {
 		const coordenada = await new CoordenadaRepository().create({ latitude, longitude, timestamp, rotaId: rota });
 		res.status(200).send({ coordenada });
 
-	} catch (err) {
-		console.log(err);
-		res.status(500).send({ error: err.message })
+	} catch (error) {
+		console.log(error);
+		res.status(500).send({ error: error.message })
 	}
 })
 

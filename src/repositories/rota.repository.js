@@ -3,8 +3,9 @@ import Coordenada from "../database/schemas/Coordenada.js";
 
 export class RotaRepository {
 	async list() {
-		return await Rota.findAll({ include: [{ model: Coordenada, as: 'coordenadas'}] });
-		// return await Rota.findAll();
+		return await Rota.findAll({
+			include: [{ model: Coordenada, as: 'coordenadas'}]
+		});
 	}
 
 	async get(id) {
@@ -12,7 +13,11 @@ export class RotaRepository {
 	}
 
 	async create(rota){
-		return await Rota.create({});
+		return await Rota.create(rota);
+	}
+
+	async remove(id) {
+		return await Rota.destroy({ where: { id } });
 	}
 
 	async destroyAll() {
