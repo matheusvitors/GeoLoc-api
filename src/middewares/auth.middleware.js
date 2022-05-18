@@ -35,7 +35,7 @@ function authenticate(req, res, next) {
 
 function unless(middleware, ...paths) {
 	return function (req, res, next) {
-		if(process.env.AUTHENTICATE) {
+		if(process.env.AUTHENTICATE === 'false') {
 			next();
 		} else {
 			const isAllowedPath = paths.some(path => path === req.path);
