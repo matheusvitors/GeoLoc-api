@@ -19,6 +19,10 @@ export class UsuarioRepository {
 		})
 	}
 
+	async find(field, value) {
+		return await Usuario.findOne({ where: { [field]: value }})
+	}
+
 	async create(usuario){
 		return await Usuario.create(usuario);
 	}
