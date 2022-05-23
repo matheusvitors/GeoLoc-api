@@ -9,7 +9,7 @@ const app = express();
 app.use(json());
 app.use(urlencoded({extended: false}));
 app.use(cors());
-app.use(unless(authenticate, '/', '/auth'));
+app.use(unless(authenticate, '/', '/auth', '/usuarios/novo'));
 app.use(routes);
 
 const port = process.env.PORT || 8000;
