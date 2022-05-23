@@ -25,7 +25,7 @@ router.get('/usuarios/:id', async (req, res) => {
 	}
 });
 
-router.post('/usuarios', async (req, res) => {
+router.post('/usuarios/novo', async (req, res) => {
 	const { matricula } = req.body;
 
 	try {
