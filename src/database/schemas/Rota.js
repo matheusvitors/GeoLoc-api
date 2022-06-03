@@ -20,6 +20,6 @@ const Rota = db.define('rota', {
 Rota.hasMany(Coordenada, {foreignKey: 'rotaId', onDelete: 'cascade'})
 Coordenada.belongsTo(Rota, {foreignKey: 'rotaId'})
 
-Rota.sync();
+// Rota.sync();
 
 export default Rota;
