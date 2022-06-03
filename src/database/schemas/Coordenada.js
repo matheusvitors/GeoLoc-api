@@ -30,6 +30,6 @@ const Coordenada = db.define('coordenada', {
 });
 
 
-Coordenada.sync();
+// Coordenada.sync();
 
 export default Coordenada;

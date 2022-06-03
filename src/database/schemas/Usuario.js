@@ -21,7 +21,7 @@ const Usuario = db.define('usuario', {
 	}
 });
 
-Usuario.sync();
+// Usuario.sync();
 
 Usuario.hasMany(Rota, {foreignKey: 'usuarioId', onDelete: 'cascade', as: 'rotas'});
 Rota.belongsTo(Usuario, {foreignKey: 'usuarioId'});
