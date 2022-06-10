@@ -1,4 +1,5 @@
 import { JwtAdapter } from "../adapters/jwt.adapter.js";
+import 'dotenv/config';
 
 function authenticate(req, res, next) {
 	const { token } = req.headers;
