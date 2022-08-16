@@ -11,19 +11,20 @@ let sequelize = null;
 console.log(process.env.DB_NAME);
 
 if(process.env.NODE_ENV.trim() === 'production') {
-	const options = {
-		dialect: 'mysql',
-		host: dbHost,
-		ssl: 'Amazon RDS',
-		logging: false
-	}
+	// const options = {
+	// 	dialect: 'mysql',
+	// 	host: dbHost,
+	// 	ssl: 'Amazon RDS',
+	// 	logging: false
+	// }
 
-	sequelize = new Sequelize(dbName, dbUser, dbPassword, options);
+	// sequelize = new Sequelize(dbName, dbUser, dbPassword, options);
 
 } else {
 	const options = {
 		dialect: 'sqlite',
-		storage: './db/database.sqlite',
+		storage:  process.env.DATABASE_URL,
+		// storage:  process.env.DATABASE_URL,
 		logging: false
 	}
 
